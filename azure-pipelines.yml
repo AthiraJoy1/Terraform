@@ -47,6 +47,10 @@ steps:
   displayName: 'Generate terraform.tfvars file'
 
 - script: |
+    cat terraform.tfvars
+  displayName: 'Display terraform.tfvars file'
+
+- script: |
     echo "Installing Terraform..."
     curl -o terraform.zip https://releases.hashicorp.com/terraform/${{ variables.terraformVersion }}/terraform_${{ variables.terraformVersion }}_linux_amd64.zip
     unzip terraform.zip
