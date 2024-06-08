@@ -39,11 +39,11 @@ variables:
 
 steps:
 - script: |
-    echo "resource_group_name = \"${{ parameters.resource_group_name }}\"" > terraform.tfvars
-    echo "location = \"${{ parameters.location }}\"" >> terraform.tfvars
-    echo "cluster_name = \"${{ parameters.cluster_name }}\"" >> terraform.tfvars
-    echo "kubernetes_version = \"${{ parameters.kubernetes_version }}\"" >> terraform.tfvars
-    echo "system_node_count = ${parameters.system_node_count}" >> terraform.tfvars
+    echo "resource_group_name = \"$(resource_group_name)\"" > terraform.tfvars
+    echo "location = \"$(location)\"" >> terraform.tfvars
+    echo "cluster_name = \"$(cluster_name)\"" >> terraform.tfvars
+    echo "kubernetes_version = \"$(kubernetes_version)\"" >> terraform.tfvars
+    echo "system_node_count = $(system_node_count)" >> terraform.tfvars
   displayName: 'Generate terraform.tfvars file'
 
 - script: |
