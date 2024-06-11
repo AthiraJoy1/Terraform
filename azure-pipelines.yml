@@ -65,25 +65,25 @@ steps:
     echo "Initializing Terraform..."
     terraform init
   displayName: 'Terraform Init'
-  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform  # Update this to the correct path
+  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform 
 
 - script: |
     echo "Planning Terraform..."
     terraform plan -out=tfplan -input=false -var-file=terraform.tfvars
   displayName: 'Terraform Plan'
-  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform  # Update this to the correct path
+  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform 
 
 - script: |
     echo "Applying Terraform plan..."
     terraform apply -input=false -auto-approve -var-file=terraform.tfvars
   displayName: 'Terraform Apply'
-  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform  # Update this to the correct path
+  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform 
 
 - script: |
     echo "Capturing Terraform outputs..."
     terraform output -json > terraform-output.json
   displayName: 'Capture Terraform Outputs'
-  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform  # Update this to the correct path
+  workingDirectory: $(System.DefaultWorkingDirectory)/Terraform 
 
 - task: PublishPipelineArtifact@1
   inputs:
